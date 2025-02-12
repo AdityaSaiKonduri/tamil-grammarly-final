@@ -34,7 +34,7 @@ class Grammarly {
                 MOST IMPORTANT: DO NOT CORRECT ANY ERRORS IN THE ENGLISH TEXT. 
                 The input: ${text}`
             );
-            
+
             tamilText = textQuery.response.text().trim();
             console.log("Converted to Tamil text:", tamilText);
 
@@ -47,8 +47,8 @@ class Grammarly {
             console.log("Corrected text:", correctedTextQuery.response.text());
             // console.log("Context : ", context);
             return correctedTextQuery.response.text();
-        } 
-        catch (e : any) {
+        }
+        catch (e: any) {
             console.error("Error in Grammarly processing:", e);
             return `Error: ${e.message}`;
         }
@@ -71,7 +71,7 @@ class Grammarly {
     }
 
     async summarize_paragraph(text: string, from_lang: string, to_lang: string) {
-        try{
+        try {
             let tamilText = text;
             console.log(tamilText);
 
@@ -85,7 +85,7 @@ Input Text: ${text}`);
             console.log("Summarized text:", tamilText);
             return tamilText;
         }
-        catch (e : any) {
+        catch (e: any) {
             console.error("Error in Grammarly processing:", e);
             return `Error: ${e.message}`;
         }
@@ -111,15 +111,14 @@ Input Text: ${text}`);
             console.log("Translated text:", translatedText);
             return translatedText;
         }
-        catch (e : any) {
+        catch (e: any) {
             console.error("Error in Grammarly processing:", e);
             return `Error: ${e.message}`;
         }
     }
-    async elaborate(text : string){
-        const elaboratedLang = await this.model.generateContent(`Detect the language of the following text and provide a detailed elaboration in the same language. Ensure the elaboration is contextually relevant and maintains the tone and structure of the original text. Output only the resultant text without any additional formatting or explanation.  
-
-**Input:** ${text}`);
+    async elaborate(text: string) {
+        const elaboratedLang = await this.model.generateContent(`Detect the language of the following text and provide a detailed elaboration in the same language. Ensure the elaboration is contextually relevant and maintains the tone and structure of the original text. Output only the resultant text without any additional formatting or explanation.
+            **Input:** ${text}`);
         return elaboratedLang.response.text();
     }
 }

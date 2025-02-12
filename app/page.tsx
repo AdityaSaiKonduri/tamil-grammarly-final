@@ -223,7 +223,7 @@ export default function NotionLikeEditor() {
     getApiKey(setApiKey)
   }, [])
 
-  console.log(apiKey)
+  // console.log(apiKey)
   
   const editor = useEditor({
     extensions: [StarterKit, SlashCommands, GrammarCheck],
